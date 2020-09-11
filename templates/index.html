@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<style > 
+  body
+  {
+        background-image: url('https://mk0analyticsindf35n9.kinstacdn.com/wp-content/uploads/2019/12/AIM_Predict_Resale_Price_APP-scaled.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+      }
+
+</style>
+<body>
+
+ <div class="login">
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('y_predict')}}"method="post">
+
+      
+        <input type="text" STYLE="color: #000000; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #FFFFFF;"
+  name="VehType" placeholder="Vehicle Type" required="required" />
+        <input type="number" STYLE="color: #000000; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #FFFFFF;" name="YOR" placeholder="Year of Registration" required="required" />
+        <input type="text" STYLE="color: #000000; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #FFFFFF;" name="Gear" placeholder="Gearbox" required="required" />
+        <input type="number" STYLE="color: #000000; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #FFFFFF;" name="powerPS" placeholder="powerPS" required="required" />
+        <input type="number" STYLE="color: #000000; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #FFFFFF;" name="km" placeholder="Kilometers Travelled" required="required" />
+        <input type="number" STYLE="color: #000000; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #FFFFFF;" name="MOR" placeholder="Month Of Registration" required="required" />
+        <input type="text" STYLE="color: #000000; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #FFFFFF;" name="FT" placeholder="FuelType" required="required" />
+        <input type="text" STYLE="color: #000000; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #FFFFFF;" name="brand" placeholder="Brand" required="required" />
+        <input type="text" STYLE="color: #000000; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #FFFFFF;" name="R/D" placeholder="NotRepaired/Damaged" required="required" />
+
+
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    
+    </form>
+  
+ <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
+
